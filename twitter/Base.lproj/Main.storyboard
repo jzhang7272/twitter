@@ -123,6 +123,10 @@
                                                     <state key="normal" title="Re" image="retweet-icon">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
+                                                    <state key="selected" image="retweet-icon-green"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="ptX-0Y-mLZ" eventType="touchUpInside" id="xvn-Al-HzV"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0b-FT-rTv">
                                                     <rect key="frame" x="219" y="135" width="63" height="25"/>
@@ -132,6 +136,10 @@
                                                     <state key="normal" title="Like" image="favor-icon">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
+                                                    <state key="selected" image="favor-icon-red"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="ptX-0Y-mLZ" eventType="touchUpInside" id="wLy-o3-A6V"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="800" text="Tweet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJT-MW-kdC">
                                                     <rect key="frame" x="76" y="35" width="305" height="20.5"/>
@@ -306,9 +314,11 @@
         <image name="close-icon" width="26" height="24"/>
         <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="favor-icon-red" width="30" height="30"/>
         <image name="message-icon" width="30" height="30"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
+        <image name="retweet-icon-green" width="30" height="30"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -73,8 +73,7 @@
 
 // Add own tweet to timeline
 - (void)didTweet:(Tweet *)tweet {
-    [self.arrayOfTweets addObject:tweet];
-    // ????
+    [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
 }
 
@@ -88,15 +87,33 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
-    // NSLog(@"%@", tweet.text);
+
+    cell.tweet = tweet;
     cell.tweetLabel.text = tweet.text;
     cell.userLabel.text = tweet.user.name;
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.timeLabel.text = tweet.createdAtString;
-    [cell.likeButton setTitle:[NSString stringWithFormat:@"%i",tweet.favoriteCount] forState: UIControlStateNormal];
-    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i",tweet.retweetCount] forState: UIControlStateNormal]; // Not showing because only for premium :'(
-    [cell.replyButton setTitle:[NSString stringWithFormat:@"%i",tweet.replyCount] forState: UIControlStateNormal];
     
+    // Like button
+    [cell.likeButton setTitle:[NSString stringWithFormat:@"%i",tweet.favoriteCount] forState: UIControlStateNormal];
+    if (cell.tweet.favorited == YES) {
+        [cell.likeButton setSelected:YES];
+    }
+    else{
+        [cell.likeButton setSelected:NO];
+    }
+    
+    // Retweet button
+    [cell.retweetButton setTitle:[NSString stringWithFormat:@"%i",tweet.retweetCount] forState: UIControlStateNormal];
+    if (cell.tweet.retweeted == YES) {
+        [cell.retweetButton setSelected:YES];
+    }
+    else{
+        [cell.retweetButton setSelected:NO];
+    }
+    
+    // Not showing because only for premium :'(
+    [cell.replyButton setTitle:[NSString stringWithFormat:@"%i",tweet.replyCount] forState: UIControlStateNormal];
     // Get pfp
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
