@@ -32,8 +32,6 @@
     
     [self loadTweets];
     
-    // self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
     // Refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(loadTweets) forControlEvents:UIControlEventValueChanged];
@@ -41,7 +39,6 @@
 }
 
 - (void)loadTweets {
-    // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
