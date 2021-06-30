@@ -26,12 +26,14 @@
              dictionary = originalTweet;
          }
          self.idStr = dictionary[@"id_str"];
-         self.text = dictionary[@"text"];
+         self.text = dictionary[@"full_text"];
+         self.truncated = dictionary[@"truncated"];
          self.favoriteCount = [dictionary[@"favorite_count"] intValue];
          self.favorited = [dictionary[@"favorited"] boolValue];
          self.retweetCount = [dictionary[@"retweet_count"] intValue];
          self.retweeted = [dictionary[@"retweeted"] boolValue];
          self.replyCount = [dictionary[@"reply_count"] intValue];
+         self.originalTweet = dictionary[@"retweeted_status"];
          
          // initialize user
          NSDictionary *user = dictionary[@"user"];
@@ -44,43 +46,43 @@
          formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
          // Convert String to Date
          NSDate *date = [formatter dateFromString:createdAtOriginalString];
-         NSDate *current = [NSDate date];
+         formatter.dateStyle = NSDateFormatterShortStyle;
+         formatter.timeStyle = NSDateFormatterShortStyle;
+         self.createdAtString = [formatter stringFromDate:date];
          
+         NSDate *current = [NSDate date];
          NSInteger yearsApart = [date yearsFrom:current];
          NSInteger monthsApart = [date monthsFrom:current];
          NSInteger daysApart = [date daysFrom:current];
          NSInteger hoursApart = [date hoursFrom:current];
          NSInteger minutesApart = [date minutesFrom:current];
          NSInteger secondsApart = [date secondsFrom:current];
-         
          if (yearsApart > 0){
              formatter.dateStyle = NSDateFormatterShortStyle;
              formatter.timeStyle = NSDateFormatterNoStyle;
-
-             self.createdAtString = [formatter stringFromDate:date];
+             self.timeAgo = [formatter stringFromDate:date];
          }
          else if (monthsApart > 0){
              NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow:monthsApart];
-             self.createdAtString = timeAgoDate.shortTimeAgoSinceNow;
+             self.timeAgo = timeAgoDate.shortTimeAgoSinceNow;
          }
          else if (daysApart > 0){
              NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow:daysApart];
-             self.createdAtString = timeAgoDate.shortTimeAgoSinceNow;
+             self.timeAgo = timeAgoDate.shortTimeAgoSinceNow;
          }
          else if (hoursApart > 0){
              NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow:hoursApart];
-             self.createdAtString = timeAgoDate.shortTimeAgoSinceNow;
+             self.timeAgo = timeAgoDate.shortTimeAgoSinceNow;
          }
          else if (minutesApart > 0){
              NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow:minutesApart];
-             self.createdAtString = timeAgoDate.shortTimeAgoSinceNow;
+             self.timeAgo = timeAgoDate.shortTimeAgoSinceNow;
          }
          else{
              NSDate *timeAgoDate = [NSDate dateWithTimeIntervalSinceNow:secondsApart];
-             self.createdAtString = timeAgoDate.shortTimeAgoSinceNow;
+             self.timeAgo = timeAgoDate.shortTimeAgoSinceNow;
          }
-         
-         
+    
      }
      return self;
  }

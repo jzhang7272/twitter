@@ -56,7 +56,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 // Post Tweet
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion{
     NSString *urlString = @"1.1/statuses/update.json";
-    NSDictionary *parameters = @{@"status": text};
+    NSDictionary *parameters = @{@"status": text, @"tweet_mode": @"extended"};
     
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
@@ -117,10 +117,11 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 }
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
+    NSDictionary *parameters = @{@"tweet_mode": @"extended"};
     
     // Create a GET Request
     [self GET:@"1.1/statuses/home_timeline.json"
-       parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+       parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
            // Success
            NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
            completion(tweets, nil);

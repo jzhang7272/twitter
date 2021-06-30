@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,11 @@
 		ED291A93268A7ECF00FD7504 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291A92268A7ECF00FD7504 /* TweetCell.m */; };
 		ED291A99268BA2BD00FD7504 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291A98268BA2BD00FD7504 /* ComposeViewController.m */; };
 		ED291A9E268CC11F00FD7504 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291A9D268CC11F00FD7504 /* DetailsViewController.m */; };
+		ED291AA1268D08D900FD7504 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AA0268D08D900FD7504 /* DetailCell.m */; };
+		ED291AA6268D166D00FD7504 /* ReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AA5268D166D00FD7504 /* ReplyCell.m */; };
+		ED291AA9268D212B00FD7504 /* ButtonViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AA8268D212B00FD7504 /* ButtonViewCell.m */; };
+		ED291AB0268D30E300FD7504 /* ReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AAC268D30E300FD7504 /* ReplyCell.m */; };
+		ED291AB1268D30E300FD7504 /* retweetLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AAE268D30E300FD7504 /* retweetLikeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +61,16 @@
 		ED291A98268BA2BD00FD7504 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		ED291A9C268CC11F00FD7504 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		ED291A9D268CC11F00FD7504 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		ED291A9F268D08D900FD7504 /* DetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		ED291AA0268D08D900FD7504 /* DetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		ED291AA4268D166D00FD7504 /* ReplyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyCell.h; sourceTree = "<group>"; };
+		ED291AA5268D166D00FD7504 /* ReplyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyCell.m; sourceTree = "<group>"; };
+		ED291AA7268D212B00FD7504 /* ButtonViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonViewCell.h; sourceTree = "<group>"; };
+		ED291AA8268D212B00FD7504 /* ButtonViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonViewCell.m; sourceTree = "<group>"; };
+		ED291AAC268D30E300FD7504 /* ReplyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyCell.m; sourceTree = "<group>"; };
+		ED291AAD268D30E300FD7504 /* ReplyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyCell.h; sourceTree = "<group>"; };
+		ED291AAE268D30E300FD7504 /* retweetLikeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = retweetLikeCell.m; sourceTree = "<group>"; };
+		ED291AAF268D30E300FD7504 /* retweetLikeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = retweetLikeCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +155,18 @@
 		6AD278FF20BCBF280085BC29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED291AAF268D30E300FD7504 /* retweetLikeCell.h */,
+				ED291AAE268D30E300FD7504 /* retweetLikeCell.m */,
+				ED291AAD268D30E300FD7504 /* ReplyCell.h */,
+				ED291AAC268D30E300FD7504 /* ReplyCell.m */,
+				ED291AA7268D212B00FD7504 /* ButtonViewCell.h */,
+				ED291AA8268D212B00FD7504 /* ButtonViewCell.m */,
+				ED291AA4268D166D00FD7504 /* ReplyCell.h */,
+				ED291AA5268D166D00FD7504 /* ReplyCell.m */,
 				ED291A91268A7ECF00FD7504 /* TweetCell.h */,
 				ED291A92268A7ECF00FD7504 /* TweetCell.m */,
+				ED291A9F268D08D900FD7504 /* DetailCell.h */,
+				ED291AA0268D08D900FD7504 /* DetailCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,15 +307,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
+				ED291AB1268D30E300FD7504 /* retweetLikeCell.m in Sources */,
 				ED291A8A268A687A00FD7504 /* User.m in Sources */,
+				ED291AA1268D08D900FD7504 /* DetailCell.m in Sources */,
+				ED291AB0268D30E300FD7504 /* ReplyCell.m in Sources */,
 				ED291A9E268CC11F00FD7504 /* DetailsViewController.m in Sources */,
 				ED291A93268A7ECF00FD7504 /* TweetCell.m in Sources */,
 				ED291A99268BA2BD00FD7504 /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
 				ED291A8D268A68FA00FD7504 /* Tweet.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
+				ED291AA6268D166D00FD7504 /* ReplyCell.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
+				ED291AA9268D212B00FD7504 /* ButtonViewCell.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

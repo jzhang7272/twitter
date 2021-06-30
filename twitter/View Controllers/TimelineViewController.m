@@ -14,6 +14,7 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "ComposeViewController.h"
+#import "DetailsViewController.h"
 //ComposeViewControllerDelegate,
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -89,7 +90,7 @@
     cell.tweetLabel.text = tweet.text;
     cell.userLabel.text = tweet.user.name;
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
-    cell.timeLabel.text = tweet.createdAtString;
+    cell.timeLabel.text = tweet.timeAgo;
     
     // Like button
     [cell.likeButton setTitle:[NSString stringWithFormat:@"%i",tweet.favoriteCount] forState: UIControlStateNormal];
@@ -132,9 +133,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-        composeController.delegate = self;
+    if([[segue identifier] isEqualToString:@"composeSeque"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+            ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+            composeController.delegate = self;
+    }
+    if ([[segue identifier] isEqualToString:@"detailsSegue"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.arrayOfTweets[indexPath.row];
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.tweet = tweet;
+    }
 }
 
 
