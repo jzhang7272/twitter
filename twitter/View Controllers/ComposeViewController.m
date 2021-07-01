@@ -18,10 +18,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.composeText.delegate = self;
+    self.composeText.text = @"What's happening?";
+    self.composeText.textColor = [UIColor lightGrayColor];
     // Do any additional setup after loading the view.
 }
 - (IBAction)closeTweet:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@"What's happening?"]) {
+         textView.text = @"";
+         textView.textColor = [UIColor blackColor]; //optional
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"What's happening?";
+        textView.textColor = [UIColor lightGrayColor]; //optional
+    }
+    [textView resignFirstResponder];
 }
 
 // Post tweet and send back to home timeline

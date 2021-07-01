@@ -16,6 +16,7 @@
 
 @interface DetailsViewController () <ButtonViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+//@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -25,7 +26,15 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     [self.tableView reloadData];
+    
+    // Refresh
+//    self.refreshControl = [[UIRefreshControl alloc] init];
+//    [self.refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
+//    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 /*
@@ -37,6 +46,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+//- (void)reloadData{
+//    [self.tableView reloadData];
+//    [self.refreshControl endRefreshing];
+//}
+
 - (void)updateData:(Tweet *)tweet {
     [self.tableView reloadData];
 }
@@ -54,6 +68,8 @@
         NSURL *url = [NSURL URLWithString:URLString];
         cell.profileView.image = nil;
         [cell.profileView setImageWithURL:url];
+        cell.profileView.layer.cornerRadius = cell.profileView.frame.size.width / 2;;
+        cell.profileView.layer.masksToBounds = YES;
         return cell;
     }
     else if (indexPath.row == 1){
@@ -64,7 +80,7 @@
         cell.retweetNumber.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
         return cell;
     }
-    else if (indexPath.row == 2){
+    else{
         ButtonViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell"];
         Tweet *tweet = self.tweet;
         cell.delegate = self;
@@ -84,11 +100,12 @@
         }
         return cell;
     }
-    else {
-        ReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyCell"];
-        return cell;
-        
-    }
+//    }
+//    else {
+//        ReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyCell"];
+//        return cell;
+//
+//    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -19,6 +19,7 @@
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *arrayOfTweets;
+@property (nonatomic) int nmbrTweets;
 
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
@@ -31,6 +32,10 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    if (self.arrayOfTweets.count == 0){
+        self.nmbrTweets = 20;
+    }
+    
     [self loadTweets];
 
     
@@ -41,18 +46,20 @@
 }
 
 - (void)loadTweets {
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+    [[APIManager shared] getHomeTimelineWithCompletion:self.nmbrTweets :^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            NSLog(@"😎 Successfully loaded home timeline");
             // self.arrayOfTweets = [Tweet tweetsWithArray:tweets];
             self.arrayOfTweets = [NSMutableArray arrayWithArray:tweets];
+            self.nmbrTweets = (int) self.arrayOfTweets.count;
+
             [self.tableView reloadData];
 //            for (NSDictionary *dictionary in tweets) {
 //                NSString *text = dictionary[@"text"];
 //                NSLog(@"%@", text);
-//            }
+//           }
         } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            NSLog(@"😫 Error getting home timeline: %@", error.localizedDescription);
         }
         [self.refreshControl endRefreshing];
     }];
@@ -78,9 +85,21 @@
 
 // Infinite Scroll
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    cell.contentView.layer.cornerRadius = 8.0f;
+//    cell.contentView.layer.borderWidth = 8.0f;
+//    cell.contentView.layer.borderColor = [UIColor clearColor].CGColor;
+//    cell.contentView.layer.masksToBounds = NO;
+//    cell.layer.backgroundColor = [UIColor clearColor].CGColor;
+//    cell.layer.shadowColor = [UIColor blackColor].CGColor;
+//    cell.layer.shadowOffset = CGSizeMake(0, 2.0f);
+//    cell.layer.shadowRadius = 2.0f;
+//    cell.layer.shadowOpacity = 0.5f;
+//    cell.layer.masksToBounds = NO;
+//    cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
+    
     if(indexPath.row + 1 == self.arrayOfTweets.count){
-//        [self loadMoreData:self.arrayOfTweets.count + 20];
-        [self.tableView reloadData];
+        self.nmbrTweets += 20;
+        [self loadTweets];
     }
 }
 
@@ -94,7 +113,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
-
+    
     cell.tweet = tweet;
     cell.tweetLabel.text = tweet.text;
     cell.userLabel.text = tweet.user.name;
@@ -127,6 +146,9 @@
     // ? NSData *urlData = [NSData dataWithContentsOfURL:url];
     cell.userView.image = nil;
     [cell.userView setImageWithURL:url];
+    cell.userView.layer.cornerRadius = cell.userView.frame.size.width / 2;;
+    cell.userView.layer.masksToBounds = YES;
+
     return cell;
 }
 

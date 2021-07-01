@@ -25,6 +25,7 @@
              // Change tweet to original tweet
              dictionary = originalTweet;
          }
+         self.ID = dictionary[@"id"];
          self.idStr = dictionary[@"id_str"];
          self.text = dictionary[@"full_text"];
          self.truncated = dictionary[@"truncated"];
