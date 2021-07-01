@@ -24,30 +24,27 @@
     if (self.tweet.favorited == NO) {
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
+        [self refreshData];
         [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
                   NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
              }
              else{
-                 self.tweet = tweet;
-                 [self refreshData];
-                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                 NSLog(@"Successfully favorited the following Tweet: %@", self.tweet.text);
              }
          }];
     }
     else{
         self.tweet.favorited = NO;
-        if (self.tweet.favoriteCount > 0){
-            self.tweet.favoriteCount -= 1;
-        }
+        self.tweet.favoriteCount -= 1;
+        [self refreshData];
         [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
                   NSLog(@"Error unfavoriting tweet: %@", error.localizedDescription);
              }
              else{
-                 self.tweet = tweet;
-                 [self refreshData];
-                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+
+                 NSLog(@"Successfully unfavorited the following Tweet: %@", self.tweet.text);
              }
          }];
     }
@@ -63,25 +60,21 @@
                   NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
              }
              else{
-                 self.tweet = tweet;
                  [self refreshData];
-                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+                 NSLog(@"Successfully retweeted the following Tweet");
              }
          }];
     }
     else{
         self.tweet.retweeted = NO;
-        if (self.tweet.retweetCount > 0){
-            self.tweet.retweetCount -= 1;
-        }
+        self.tweet.retweetCount -= 1;
+        [self refreshData];
         [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
                   NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);
              }
              else{
-                 self.tweet = tweet;
-                 [self refreshData];
-                 NSLog(@"Successfully unretweeted following Tweet: %@", tweet.text);
+                 NSLog(@"Successfully unretweeted following Tweet");
              }
          }];
     }

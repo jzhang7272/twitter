@@ -19,12 +19,6 @@
     // Initialization code
 }
 
-- (void)updateData:(Tweet *)tweet {
-    NSLog(@"updateData called.");
-    self.likeNumber.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
-    self.retweetNumber.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

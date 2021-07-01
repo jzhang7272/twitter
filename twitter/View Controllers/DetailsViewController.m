@@ -14,7 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "retweetLikeCell.h"
 
-@interface DetailsViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DetailsViewController () <ButtonViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -25,6 +25,7 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView reloadData];
 }
 
 /*
@@ -36,6 +37,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)updateData:(Tweet *)tweet {
+    NSLog(@"updateData called.");
+    [self.tableView reloadData];
+//    self.likeNumber.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
+//    self.retweetNumber.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
+}
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if (indexPath.row == 0){

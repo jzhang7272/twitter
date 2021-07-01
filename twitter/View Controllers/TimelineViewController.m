@@ -32,6 +32,7 @@
     self.tableView.delegate = self;
     
     [self loadTweets];
+
     
     // Refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
