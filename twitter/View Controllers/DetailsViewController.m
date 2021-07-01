@@ -38,10 +38,7 @@
 }
 */
 - (void)updateData:(Tweet *)tweet {
-    NSLog(@"updateData called.");
     [self.tableView reloadData];
-//    self.likeNumber.text = [NSString stringWithFormat:@"%i", tweet.favoriteCount];
-//    self.retweetNumber.text = [NSString stringWithFormat:@"%i", tweet.retweetCount];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -70,6 +67,7 @@
     else if (indexPath.row == 2){
         ButtonViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell"];
         Tweet *tweet = self.tweet;
+        cell.delegate = self;
         cell.tweet = tweet;
         if (cell.tweet.favorited == YES) {
             [cell.likeButton setSelected:YES];

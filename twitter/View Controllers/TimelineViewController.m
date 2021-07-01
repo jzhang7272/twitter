@@ -76,6 +76,14 @@
     [self.tableView reloadData];
 }
 
+// Infinite Scroll
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row + 1 == self.arrayOfTweets.count){
+//        [self loadMoreData:self.arrayOfTweets.count + 20];
+        [self.tableView reloadData];
+    }
+}
+
 // Number of Cells
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfTweets.count;

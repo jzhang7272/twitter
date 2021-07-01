@@ -8,7 +8,7 @@
 #import "retweetLikeCell.h"
 #import "ButtonViewCell.h"
 
-@interface retweetLikeCell () <ButtonViewCellDelegate>
+@interface retweetLikeCell ()
 
 @end
 
