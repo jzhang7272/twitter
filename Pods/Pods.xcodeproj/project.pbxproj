@@ -180,6 +180,12 @@
 		ED291AA3268D161D00FD7504 /* ReplyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ReplyCell.m; path = ../twitter/Views/ReplyCell.m; sourceTree = "<group>"; };
 		ED291AAA268D307600FD7504 /* retweetLikeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = retweetLikeCell.h; path = ../twitter/Views/retweetLikeCell.h; sourceTree = "<group>"; };
 		ED291AAB268D307600FD7504 /* retweetLikeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = retweetLikeCell.m; path = ../twitter/Views/retweetLikeCell.m; sourceTree = "<group>"; };
+		ED291AB2268E278300FD7504 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "../twitter/View Controllers/ProfileViewController.h"; sourceTree = "<group>"; };
+		ED291AB3268E278300FD7504 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "../twitter/View Controllers/ProfileViewController.m"; sourceTree = "<group>"; };
+		ED291AB7268E4AA500FD7504 /* pfpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = pfpCell.h; path = ../twitter/Views/pfpCell.h; sourceTree = "<group>"; };
+		ED291AB8268E4AA500FD7504 /* pfpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = pfpCell.m; path = ../twitter/Views/pfpCell.m; sourceTree = "<group>"; };
+		ED291ABF268E6CA100FD7504 /* userTweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = userTweetCell.h; path = ../twitter/Views/userTweetCell.h; sourceTree = "<group>"; };
+		ED291AC0268E6CA100FD7504 /* userTweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = userTweetCell.m; path = ../twitter/Views/userTweetCell.m; sourceTree = "<group>"; };
 		F3812A9506FA94DE1697E32ABD62ACF9 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		F58280F645EFA8CEF8097B620E5856FA /* Pods-twitter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-twitter-dummy.m"; sourceTree = "<group>"; };
 		F8A5B530109BF31CCE3099468B6FD0DE /* AFImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFImageDownloader.m; path = "UIKit+AFNetworking/AFImageDownloader.m"; sourceTree = "<group>"; };
@@ -393,6 +399,12 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
+				ED291AB7268E4AA500FD7504 /* pfpCell.h */,
+				ED291AB8268E4AA500FD7504 /* pfpCell.m */,
+				ED291AB2268E278300FD7504 /* ProfileViewController.h */,
+				ED291AB3268E278300FD7504 /* ProfileViewController.m */,
+				ED291ABF268E6CA100FD7504 /* userTweetCell.h */,
+				ED291AC0268E6CA100FD7504 /* userTweetCell.m */,
 				ED291AAA268D307600FD7504 /* retweetLikeCell.h */,
 				ED291AAB268D307600FD7504 /* retweetLikeCell.m */,
 				ED291AA2268D161D00FD7504 /* ReplyCell.h */,

@@ -15,6 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profilePicture;
+@property (nonatomic, strong) NSString *created;
+@property (nonatomic) int followers;
+@property (nonatomic) int tweets;
+@property (nonatomic) int following;
+@property (nonatomic) BOOL defaultBackground;
+@property (nonatomic) BOOL defaultProfile;
+@property (nonatomic, strong) NSString *backgroundImage;
 
 // Create initializer
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

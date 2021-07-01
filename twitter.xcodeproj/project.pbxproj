@@ -28,6 +28,9 @@
 		ED291AA9268D212B00FD7504 /* ButtonViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AA8268D212B00FD7504 /* ButtonViewCell.m */; };
 		ED291AB0268D30E300FD7504 /* ReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AAC268D30E300FD7504 /* ReplyCell.m */; };
 		ED291AB1268D30E300FD7504 /* retweetLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AAE268D30E300FD7504 /* retweetLikeCell.m */; };
+		ED291ABB268E4AB200FD7504 /* pfpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291ABA268E4AB200FD7504 /* pfpCell.m */; };
+		ED291ABE268E4AF600FD7504 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291ABD268E4AF600FD7504 /* ProfileViewController.m */; };
+		ED291AC3268E6D1500FD7504 /* userTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED291AC1268E6D1500FD7504 /* userTweetCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +74,12 @@
 		ED291AAD268D30E300FD7504 /* ReplyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyCell.h; sourceTree = "<group>"; };
 		ED291AAE268D30E300FD7504 /* retweetLikeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = retweetLikeCell.m; sourceTree = "<group>"; };
 		ED291AAF268D30E300FD7504 /* retweetLikeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = retweetLikeCell.h; sourceTree = "<group>"; };
+		ED291AB9268E4AB200FD7504 /* pfpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pfpCell.h; sourceTree = "<group>"; };
+		ED291ABA268E4AB200FD7504 /* pfpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pfpCell.m; sourceTree = "<group>"; };
+		ED291ABC268E4AF600FD7504 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		ED291ABD268E4AF600FD7504 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		ED291AC1268E6D1500FD7504 /* userTweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = userTweetCell.m; sourceTree = "<group>"; };
+		ED291AC2268E6D1500FD7504 /* userTweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = userTweetCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +164,10 @@
 		6AD278FF20BCBF280085BC29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED291AC2268E6D1500FD7504 /* userTweetCell.h */,
+				ED291AC1268E6D1500FD7504 /* userTweetCell.m */,
+				ED291AB9268E4AB200FD7504 /* pfpCell.h */,
+				ED291ABA268E4AB200FD7504 /* pfpCell.m */,
 				ED291AAF268D30E300FD7504 /* retweetLikeCell.h */,
 				ED291AAE268D30E300FD7504 /* retweetLikeCell.m */,
 				ED291AAD268D30E300FD7504 /* ReplyCell.h */,
@@ -174,6 +187,8 @@
 		6AD2790320BCC01B0085BC29 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ED291ABC268E4AF600FD7504 /* ProfileViewController.h */,
+				ED291ABD268E4AF600FD7504 /* ProfileViewController.m */,
 				6AD2790420BCC0380085BC29 /* LoginViewController.h */,
 				6AD2790520BCC0380085BC29 /* LoginViewController.m */,
 				6AD2790720BCC04D0085BC29 /* TimelineViewController.h */,
@@ -306,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED291AC3268E6D1500FD7504 /* userTweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
 				ED291AB1268D30E300FD7504 /* retweetLikeCell.m in Sources */,
 				ED291A8A268A687A00FD7504 /* User.m in Sources */,
@@ -316,9 +332,11 @@
 				ED291A99268BA2BD00FD7504 /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
 				ED291A8D268A68FA00FD7504 /* Tweet.m in Sources */,
+				ED291ABE268E4AF600FD7504 /* ProfileViewController.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				ED291AA6268D166D00FD7504 /* ReplyCell.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
+				ED291ABB268E4AB200FD7504 /* pfpCell.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
 				ED291AA9268D212B00FD7504 /* ButtonViewCell.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,

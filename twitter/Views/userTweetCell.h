@@ -1,9 +1,8 @@
 //
-//  TweetCell.h
-//  twitter
+//  userTweetCell.h
+//  Pods
 //
-//  Created by Josey Zhang on 6/28/21.
-//  Copyright © 2021 Emerson Malca. All rights reserved.
+//  Created by Josey Zhang on 7/1/21.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,9 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol TweetCellDelegate;
+@interface userTweetCell : UITableViewCell
 
-@interface TweetCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userView;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
@@ -25,14 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
-@property (strong, nonatomic) Tweet* tweet;
-
-@property (nonatomic, weak) id<TweetCellDelegate> delegate;
-
-@end
-
-@protocol TweetCellDelegate
-- (void)tweetCell:(TweetCell *)tweetCell didTap: (User *)user;
+@property (nonatomic, strong) Tweet *tweet;
 @end
 
 NS_ASSUME_NONNULL_END

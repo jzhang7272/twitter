@@ -15,8 +15,10 @@
 #import "UIImageView+AFNetworking.h"
 #import "ComposeViewController.h"
 #import "DetailsViewController.h"
+#import "ProfileViewController.h"
+
 //ComposeViewControllerDelegate,
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, TweetCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *arrayOfTweets;
 @property (nonatomic) int nmbrTweets;
@@ -76,6 +78,11 @@
     [[APIManager shared] logout];
 }
 
+// Segue to profile
+- (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
+}
+
 
 // Add own tweet to timeline
 - (void)didTweet:(Tweet *)tweet {
@@ -85,17 +92,6 @@
 
 // Infinite Scroll
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    cell.contentView.layer.cornerRadius = 8.0f;
-//    cell.contentView.layer.borderWidth = 8.0f;
-//    cell.contentView.layer.borderColor = [UIColor clearColor].CGColor;
-//    cell.contentView.layer.masksToBounds = NO;
-//    cell.layer.backgroundColor = [UIColor clearColor].CGColor;
-//    cell.layer.shadowColor = [UIColor blackColor].CGColor;
-//    cell.layer.shadowOffset = CGSizeMake(0, 2.0f);
-//    cell.layer.shadowRadius = 2.0f;
-//    cell.layer.shadowOpacity = 0.5f;
-//    cell.layer.masksToBounds = NO;
-//    cell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:cell.bounds cornerRadius:cell.contentView.layer.cornerRadius].CGPath;
     
     if(indexPath.row + 1 == self.arrayOfTweets.count){
         self.nmbrTweets += 20;
@@ -115,6 +111,7 @@
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
     cell.tweet = tweet;
+    cell.delegate = self;
     cell.tweetLabel.text = tweet.text;
     cell.userLabel.text = tweet.user.name;
     cell.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
@@ -175,6 +172,11 @@
         Tweet *tweet = self.arrayOfTweets[indexPath.row];
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.tweet = tweet;
+    }
+    if ([[segue identifier] isEqualToString:@"profileSegue"]) {
+        User *user = sender;
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.user = user;
     }
 }
 
