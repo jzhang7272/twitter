@@ -52,11 +52,23 @@ Please list two areas of the assignment you'd like to **discuss further with you
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+
+Logging in and out:
 <img src='https://i.imgur.com/oK6Y8IF.gif' title='Logging in and out' width='' />
+
+Compose a tweet:
 <img src='https://i.imgur.com/CmGeg7F.gif' title='Compose Tweet' width='' alt='Compose Tweet' />
+
+Infinite Scrolling and Refresh:
 <img src='https://i.imgur.com/FHBYYKs.gif' title='Infinite Scrolling and Refresh' width='' />
+
+Retweeting and Liking;
 <img src='https://i.imgur.com/A7xWEP9.gif' title='Retweeting and Liking' width='' />
+
+Detail View:
 <img src='https://i.imgur.com/oPwRwus.gif' title='Detail View' width='' alt='Detail View' />
+
+Profile View:
 <img src='https://i.imgur.com/xHzHrcS.gif' title='Profile View' width='' />
 
 GIF created with [EZGif].
