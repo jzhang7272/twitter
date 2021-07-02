@@ -576,9 +576,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ep1-3O-sTW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ep1-3O-sTW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pfpCell" rowHeight="279" id="qKh-4e-Zeh" customClass="pfpCell">
@@ -625,7 +624,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZXy-3d-0lG">
-                                                    <rect key="frame" x="176" y="75" width="60" height="60"/>
+                                                    <rect key="frame" x="176" y="75" width="62" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="e73-pp-xxh"/>
                                                         <constraint firstAttribute="width" constant="60" id="vdm-ZE-zw0"/>
@@ -641,6 +640,7 @@
                                             <constraints>
                                                 <constraint firstItem="ZXy-3d-0lG" firstAttribute="leading" secondItem="IQ2-qY-UBP" secondAttribute="leading" id="0zm-vV-9jJ"/>
                                                 <constraint firstItem="KCu-fl-RHV" firstAttribute="centerX" secondItem="qjZ-aD-07T" secondAttribute="centerX" id="3TA-Ky-NZr"/>
+                                                <constraint firstItem="ZXy-3d-0lG" firstAttribute="centerX" secondItem="qjZ-aD-07T" secondAttribute="centerX" id="5oN-7f-vMW"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="rNY-bX-yQN" secondAttribute="bottom" constant="8" id="6GK-eJ-yAO"/>
                                                 <constraint firstItem="jHJ-4c-vrd" firstAttribute="bottom" secondItem="rNY-bX-yQN" secondAttribute="bottom" id="6Qw-6v-zXE"/>
                                                 <constraint firstItem="20R-bs-FgH" firstAttribute="top" secondItem="qjZ-aD-07T" secondAttribute="top" id="B6I-uL-vVO"/>
@@ -821,6 +821,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e9R-If-GAQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ep1-3O-sTW" firstAttribute="leading" secondItem="e9R-If-GAQ" secondAttribute="leading" id="eBY-37-MfQ"/>
+                            <constraint firstItem="ep1-3O-sTW" firstAttribute="trailing" secondItem="e9R-If-GAQ" secondAttribute="trailing" id="gOy-kJ-Hgj"/>
+                            <constraint firstAttribute="bottom" secondItem="ep1-3O-sTW" secondAttribute="bottom" id="jqv-qy-eOO"/>
+                            <constraint firstItem="ep1-3O-sTW" firstAttribute="top" secondItem="I5G-mR-Ddq" secondAttribute="top" id="zS8-Rr-UEn"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C9L-ZG-iFU"/>
                     <connections>
