@@ -71,6 +71,9 @@ Detail View:
 Profile View:
 <img src='https://i.imgur.com/xHzHrcS.gif' title='Profile View' width='' />
 
+Different Device and Landscape:
+<img src='https://i.imgur.com/27xIFly.gif' title='Landscape View' width='' />
+
 GIF created with [EZGif].
 
 ## Notes
