@@ -16,7 +16,6 @@
 
 @interface DetailsViewController () <ButtonViewCellDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-//@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -30,26 +29,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.tableView reloadData];
-    
-    // Refresh
-//    self.refreshControl = [[UIRefreshControl alloc] init];
-//    [self.refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
-//    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-//- (void)reloadData{
-//    [self.tableView reloadData];
-//    [self.refreshControl endRefreshing];
-//}
 
 - (void)updateData:(Tweet *)tweet {
     [self.tableView reloadData];
@@ -100,16 +80,9 @@
         }
         return cell;
     }
-//    }
-//    else {
-//        ReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyCell"];
-//        return cell;
-//
-//    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // 3 + number of replies
     return 3;
 }
 

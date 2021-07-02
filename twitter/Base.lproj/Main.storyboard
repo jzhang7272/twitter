@@ -47,7 +47,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="8nm-CQ-kXc" kind="presentation" id="xXk-JQ-c0l"/>
+                        <segue destination="8nm-CQ-kXc" kind="presentation" identifier="loginSegue" id="xXk-JQ-c0l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
@@ -499,10 +499,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7y-Kl-ZYL">
-                                <rect key="frame" x="0.0" y="56" width="414" height="196"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u7y-Kl-ZYL">
+                                <rect key="frame" x="8" y="64" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="tQC-Ye-z6m"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="test">
                                         <attributes>
@@ -513,9 +515,22 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters: 0/140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqC-Sm-clL">
+                                <rect key="frame" x="8" y="272" width="115" height="18"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gMB-wh-Qtk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u7y-Kl-ZYL" firstAttribute="top" secondItem="gMB-wh-Qtk" secondAttribute="top" constant="8" id="6bB-Qk-DOg"/>
+                            <constraint firstItem="u7y-Kl-ZYL" firstAttribute="trailing" secondItem="gMB-wh-Qtk" secondAttribute="trailing" constant="8" id="Lai-GR-cYY"/>
+                            <constraint firstItem="u7y-Kl-ZYL" firstAttribute="leading" secondItem="gMB-wh-Qtk" secondAttribute="leading" constant="8" id="X3D-MJ-vXd"/>
+                            <constraint firstItem="tqC-Sm-clL" firstAttribute="top" secondItem="u7y-Kl-ZYL" secondAttribute="bottom" constant="8" id="slt-f0-6cF"/>
+                            <constraint firstItem="tqC-Sm-clL" firstAttribute="leading" secondItem="gMB-wh-Qtk" secondAttribute="leading" constant="8" id="zgQ-VR-ZFE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8ax-o0-R8J">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="close-icon" id="Cya-eZ-Y94">
@@ -531,11 +546,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="composeText" destination="u7y-Kl-ZYL" id="bRg-2u-pvg"/>
+                        <outlet property="countLabel" destination="tqC-Sm-clL" id="Igc-Uc-J4J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2U2-tM-WE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="1650"/>
+            <point key="canvasLocation" x="531.8840579710145" y="1650"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Glx-8I-qIq">
@@ -892,6 +908,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

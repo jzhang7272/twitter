@@ -10,8 +10,6 @@
 #import "Tweet.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
-// static NSString * const consumerKey = // Enter your consumer key here
-// static NSString * const consumerSecret = // Enter your consumer secret here
 
 @interface APIManager()
 
@@ -36,9 +34,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     NSString *secret = [dict objectForKey: @"consumer_Secret"];
     
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
-    // NSString *key = consumerKey;
-    // NSString *secret = consumerSecret;
-    // Check for launch arguments override
+ 
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"consumer-key"]) {
         key = [[NSUserDefaults standardUserDefaults] stringForKey:@"consumer-key"];
     }
@@ -53,10 +49,9 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     return self;
 }
 
-// Post Tweet
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion{
     NSString *urlString = @"1.1/statuses/update.json";
-    NSDictionary *parameters = @{@"status": text, @"tweet_mode": @"extended"};
+    NSDictionary *parameters = @{@"tweet_mode": @"extended", @"status": text};
     
     [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable tweetDictionary) {
         Tweet *tweet = [[Tweet alloc]initWithDictionary:tweetDictionary];
@@ -66,7 +61,6 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
-// Favorite tweet
 - (void)favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     NSString *urlString = @"1.1/favorites/create.json";
     NSDictionary *parameters = @{@"id": tweet.idStr};
@@ -79,7 +73,6 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
-// Unfavorite tweet
 - (void)unfavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     NSString *urlString = @"1.1/favorites/destroy.json";
     NSDictionary *parameters = @{@"id": tweet.idStr};
@@ -92,7 +85,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
-// Retweet
+
 - (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     NSString *urlString = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweet.idStr];
 
@@ -118,14 +111,11 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 - (void)getHomeTimelineWithCompletion:(int)nmbrTweets :(void(^)(NSArray *tweets, NSError *error))completion {
     NSDictionary *parameters = @{@"tweet_mode": @"extended", @"count": [NSNumber numberWithInt:nmbrTweets]};
     
-    // Create a GET Request
     [self GET:@"1.1/statuses/home_timeline.json"
        parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
-           // Success
            NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
            completion(tweets, nil);
        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-           // There was a problem
            completion(nil, error);
     }];
 }
@@ -133,14 +123,11 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 - (void)getUserTimelineWithCompletion:(NSString *)username :(void(^)(NSArray *tweets, NSError *error))completion {
     NSDictionary *parameters = @{@"tweet_mode": @"extended", @"screen_name": username};
     
-    // Create a GET Request
     [self GET:@"1.1/statuses/user_timeline.json"
        parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
-           // Success
            NSMutableArray *tweets  = [Tweet tweetsWithArray:tweetDictionaries];
            completion(tweets, nil);
        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-           // There was a problem
            completion(nil, error);
     }];
 }

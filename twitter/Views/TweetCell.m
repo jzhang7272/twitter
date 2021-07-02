@@ -26,7 +26,6 @@
     [self.delegate tweetCell:self didTap:self.tweet.user];
 }
 
-// Favoriting and unfavoriting
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited == NO) {
         self.tweet.favorited = YES;
@@ -57,7 +56,6 @@
     }
 }
 
-// Retweet
 - (IBAction)didTapRetweet:(id)sender {
     if (self.tweet.retweeted == NO) {
         self.tweet.retweeted = YES;
@@ -89,7 +87,7 @@
 
 
 - (void)refreshData {
-    // like
+
     [self.likeButton setTitle:[NSString stringWithFormat:@"%i",self.tweet.favoriteCount] forState: UIControlStateNormal];
     if (self.tweet.favorited == YES) {
         [self.likeButton setSelected:YES];
@@ -98,7 +96,7 @@
         [self.likeButton setSelected:NO];
     }
     
-    // retweet
+
     [self.retweetButton setTitle:[NSString stringWithFormat:@"%i",self.tweet.retweetCount] forState: UIControlStateNormal];
     if (self.tweet.retweeted == YES) {
         [self.retweetButton setSelected:YES];
@@ -111,7 +109,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 @end

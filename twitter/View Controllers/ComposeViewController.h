@@ -10,7 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// protocol creates a contract between the ComposeViewController and whichever view controller presented it
 @protocol ComposeViewControllerDelegate
 
 - (void)didTweet:(Tweet *)tweet;
@@ -19,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeViewController : UIViewController
 
-// weak avoids memory leaks
 @property (nonatomic, weak) id<ComposeViewControllerDelegate> delegate;
 
 @end

@@ -51,15 +51,10 @@
     [[APIManager shared] getHomeTimelineWithCompletion:self.nmbrTweets :^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎 Successfully loaded home timeline");
-            // self.arrayOfTweets = [Tweet tweetsWithArray:tweets];
             self.arrayOfTweets = [NSMutableArray arrayWithArray:tweets];
             self.nmbrTweets = (int) self.arrayOfTweets.count;
 
             [self.tableView reloadData];
-//            for (NSDictionary *dictionary in tweets) {
-//                NSString *text = dictionary[@"text"];
-//                NSLog(@"%@", text);
-//           }
         } else {
             NSLog(@"😫 Error getting home timeline: %@", error.localizedDescription);
         }
@@ -67,7 +62,6 @@
     }];
 }
 
-// Log Out
 - (IBAction)onTapLogout:(id)sender {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 
@@ -82,7 +76,6 @@
 - (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
     [self performSegueWithIdentifier:@"profileSegue" sender:user];
 }
-
 
 // Add own tweet to timeline
 - (void)didTweet:(Tweet *)tweet {
@@ -140,7 +133,6 @@
     // Get pfp
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
-    // ? NSData *urlData = [NSData dataWithContentsOfURL:url];
     cell.userView.image = nil;
     [cell.userView setImageWithURL:url];
     cell.userView.layer.cornerRadius = cell.userView.frame.size.width / 2;;
@@ -151,16 +143,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if([[segue identifier] isEqualToString:@"composeSeque"]) {
         UINavigationController *navigationController = [segue destinationViewController];
             ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;

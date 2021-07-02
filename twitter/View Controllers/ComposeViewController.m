@@ -10,6 +10,8 @@
 
 @interface ComposeViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *composeText;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (nonatomic) int count;
 
 @end
 
@@ -20,7 +22,7 @@
     self.composeText.delegate = self;
     self.composeText.text = @"What's happening?";
     self.composeText.textColor = [UIColor lightGrayColor];
-    // Do any additional setup after loading the view.
+    self.count = 140;
 }
 - (IBAction)closeTweet:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
@@ -29,15 +31,26 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     if ([textView.text isEqualToString:@"What's happening?"]) {
          textView.text = @"";
-         textView.textColor = [UIColor blackColor]; //optional
+         textView.textColor = [UIColor blackColor];
     }
     [textView becomeFirstResponder];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    int characterLimit = 140;
+    
+    NSString *newText = [self.composeText.text stringByReplacingCharactersInRange:range withString:text];
+    self.count = newText.length;
+    
+    self.countLabel.text = [NSString stringWithFormat:@"Characters: %d/140", self.count];
+
+    return newText.length < characterLimit;
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     if ([textView.text isEqualToString:@""]) {
         textView.text = @"What's happening?";
-        textView.textColor = [UIColor lightGrayColor]; //optional
+        textView.textColor = [UIColor lightGrayColor];
     }
     [textView resignFirstResponder];
 }
@@ -55,15 +68,4 @@
         }
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

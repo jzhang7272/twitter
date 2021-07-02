@@ -14,10 +14,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
-// Favoriting and unfavoriting
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited == NO) {
         self.tweet.favorited = YES;
@@ -47,7 +45,6 @@
     }
 }
 
-// Retweet
 - (IBAction)didTapRetweet:(id)sender {
     if (self.tweet.retweeted == NO) {
         self.tweet.retweeted = YES;
@@ -97,8 +94,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

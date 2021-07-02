@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL defaultProfile;
 @property (nonatomic, strong) NSString *backgroundImage;
 
-// Create initializer
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
